@@ -173,7 +173,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\": \"John Doe22222\",\r\n     \"email\": \"admin@tesaaat.com\",\r\n  \"salary\": 5000,\r\n  \"position_id\":\"1\",\r\n  \"manager_id\": 4\r\n}",
+              "raw": "{\r\n    \"name\": \"Mohammad 4\",\r\n     \"email\": \"mohammad4@test.com\",\r\n  \"salary\": 5000,\r\n  \"position_id\":\"4\",\r\n  \"manager_id\": 3\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -202,16 +202,6 @@
             "disableBodyPruning": true
           },
           "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "9|6sGo1GaxFRO2IPA8E3RQ1IGibPq9TxzoB9rprsyg393a33ef",
-                  "type": "string"
-                }
-              ]
-            },
             "method": "GET",
             "header": [
               {
@@ -254,16 +244,6 @@
         {
           "name": "Get",
           "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "4|9CI5IXt8Th2wyZeariBltKtxqxeqrr5OipCi7eg5d164ec19",
-                  "type": "string"
-                }
-              ]
-            },
             "method": "GET",
             "header": [
               {
@@ -344,7 +324,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n     \"name\": \"Mohammad Khair\",\r\n      \"email\": \"mohammad@test.com\",\r\n      \"salary\": 2000\r\n\r\n}",
+              "raw": "{\r\n     \"name\": \"Mohammad Khair\",\r\n      \"email\": \"mohammad2@wwqwq.com\",\r\n      \"salary\": 2000\r\n\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -385,7 +365,7 @@
               }
             ],
             "url": {
-              "raw": "http://localhost:8000/api/v1/employees/8/hierarchy",
+              "raw": "http://localhost:8000/api/v1/employees/4/hierarchy",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -395,7 +375,7 @@
                 "api",
                 "v1",
                 "employees",
-                "8",
+                "4",
                 "hierarchy"
               ]
             }
@@ -552,6 +532,9 @@
         },
         {
           "name": "No Salary Changes",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [
@@ -566,8 +549,17 @@
                 "type": "text"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"months\":5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
-              "raw": "http://localhost:8000/api/v1/employees/salary-change-list?months=2",
+              "raw": "http://localhost:8000/api/v1/reports/employees/no-salary-change",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -576,14 +568,9 @@
               "path": [
                 "api",
                 "v1",
+                "reports",
                 "employees",
-                "salary-change-list"
-              ],
-              "query": [
-                {
-                  "key": "months",
-                  "value": "2"
-                }
+                "no-salary-change"
               ]
             }
           },
@@ -612,7 +599,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\":\"HR\"\r\n}",
+              "raw": "{\r\n    \"name\":\"Backend Developer\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -726,7 +713,7 @@
     "bearer": [
       {
         "key": "token",
-        "value": "12|jNFb0eCZNZeYzLsfsFEVRx5k1PQYuFBnXycXe8qz80ba6012",
+        "value": "2|qFkliZdCRM5N7J19N08uYpqdyCEiEdUj9El2baQA83c7a620",
         "type": "string"
       }
     ]

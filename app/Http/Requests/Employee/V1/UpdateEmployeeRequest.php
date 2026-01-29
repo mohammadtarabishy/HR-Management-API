@@ -10,18 +10,22 @@ class UpdateEmployeeRequest extends FormRequest
 {
     public function rules(): array
     {
+        $routeParam = $this->route('employee');
+        $employeeId = is_object($routeParam) ? $routeParam->id : $routeParam;
+
         return [
             'name' => 'sometimes|string|max:255',
             'email' => [
                 'sometimes',
                 'email',
-                Rule::unique('employees', 'email')->ignore($this->route('employee')),
+                Rule::unique('employees', 'email')->ignore($employeeId),
             ],
             'salary' => 'sometimes|numeric|min:0',
             'position_id' => 'sometimes|exists:positions,id',
             'manager_id' => [
+                'sometimes',
                 'exists:employees,id',
-                new OnlyOneFounder($this->employee ? $this->employee->id : null),
+                new OnlyOneFounder($employeeId),
             ],
         ];
     }

@@ -98,6 +98,6 @@ All endpoints are versioned under /api/v1/.
 
 - `php artisan logs:delete-old`           Delete employee logs older than 1 month      
 - `php artisan logs:clear`                Remove all log files                         
-- `php artisan employees:seed {count}`    Seed employees with progress bar             
+- `php artisan employee:seed {count}`    Seed employees with progress bar             
 - `php artisan db:export {--path=}`       Export database to SQL (optional path)       
 - `php artisan employees:json {--path=}`  Export all employees to JSON (optional path) 
