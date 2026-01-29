@@ -14,8 +14,8 @@ class EmployeeSalaryService
     {
         return DB::transaction(function () use ($employee, $newSalary) {
             $oldSalary = $employee->salary;
-            if ($oldSalary == $newSalary) {
-                return $employee;
+            if ((float)$oldSalary == $newSalary) {
+                return new EmployeeResource($employee);
             }
             $oldData = $employee->toArray();
             $employee->update([

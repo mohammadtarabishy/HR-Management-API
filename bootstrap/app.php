@@ -25,36 +25,28 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-
         $exceptions->render(function (Throwable $e, $request) {
-
             if (!$request->expectsJson()) {
-                return null; // fallback to default
+                return null;
             }
-
             if ($e instanceof ValidationException) {
                 return ApiResponse::validation($e->errors());
             }
-
             if ($e instanceof AuthenticationException) {
                 return ApiResponse::unauthorized();
             }
-
             if ($e instanceof HttpExceptionInterface) {
                 return ApiResponse::error(
                     $e->getMessage(),
                     $e->getStatusCode()
                 );
             }
-
             return ApiResponse::serverError(
                 app()->isProduction()
                     ? 'Something went wrong'
                     : $e->getMessage()
             );
         });
-
     })
-
     ->create();
 

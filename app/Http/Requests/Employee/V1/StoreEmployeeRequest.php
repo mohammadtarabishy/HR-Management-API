@@ -21,6 +21,24 @@ class StoreEmployeeRequest extends FormRequest
         ];
     }
 
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Employee name is required.',
+            'name.string' => 'Employee name must be a valid string.',
+            'name.max' => 'Employee name may not exceed 255 characters.',
+            'email.required' => 'Email address is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'email.unique' => 'This email address is already assigned to another employee.',
+            'salary.required' => 'Salary is required.',
+            'salary.numeric' => 'Salary must be a valid number.',
+            'salary.min' => 'Salary must be greater than or equal to 0.',
+            'position_id.required' => 'Position is required.',
+            'position_id.exists' => 'The selected position does not exist.',
+            'manager_id.exists' => 'The selected manager does not exist.',
+        ];
+    }
+
     protected function prepareForValidation()
     {
         if ($this->has('manager_id') && $this->manager_id === '') {

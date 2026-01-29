@@ -28,6 +28,6 @@ class OnlyOneFounder implements ImplicitRule
 
     public function message(): string
     {
-        return 'The company already has a founder. Only one founder is allowed.';
+        return 'Only one founder is allowed.';
     }
 }

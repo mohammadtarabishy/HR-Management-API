@@ -13,4 +13,13 @@ class UpdatePositionRequest extends FormRequest
             'name' => "required|string|unique:positions,name,{$positionId}",
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Position name is required.',
+            'name.string' => 'Position name must be a valid string.',
+            'name.unique' => 'This position name is already in use.',
+        ];
+    }
 }

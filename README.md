@@ -75,7 +75,7 @@ HR Management API is a backend API platform that enables organizations to manage
 - RESTful APIs
 - Eloquent ORM
 - Event Broadcasting
-
+- Queue
 
 ---
 
@@ -96,8 +96,15 @@ All endpoints are versioned under /api/v1/.
 
 ## ⚙️ Artisan Commands
 
-- `php artisan logs:delete-old`           Delete employee logs older than 1 month      
-- `php artisan logs:clear`                Remove all log files                         
-- `php artisan employee:seed {count}`    Seed employees with progress bar             
-- `php artisan db:export {--path=}`       Export database to SQL (optional path)       
-- `php artisan employees:json {--path=}`  Export all employees to JSON (optional path) 
+- `php artisan employee:logs:cleanup --days=30`           Delete employee logs older than 1 month      
+- `php artisan logs:clear-files`                          Remove all log files                         
+- `php artisan employee:seed {count}`                     Seed employees with progress bar             
+- `php artisan db:export {--path=}`                       Export database to SQL (optional path)       
+- `php artisan employees:json {--path=}`                  Export all employees to JSON (optional path) 
+
+
+## ⚡⚡ Notes
+
+- Check the public\project folder contains( .env - my_db Backup - postman collection - CSV import sample - email sample - ERD Diagram).
+- mail confige in .env file required for testing emails i used for that mailtrap.io provider.
+

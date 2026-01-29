@@ -8,7 +8,6 @@ use App\Models\Position;
 use App\Services\Position\V1\PositionService;
 use Illuminate\Foundation\Testing\WithFaker;
 use PHPUnit\Framework\Attributes\Test;
-
 class PositionControllerTest extends TestCase
 {
     use WithFaker;

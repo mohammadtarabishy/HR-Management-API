@@ -12,8 +12,7 @@ class DatabaseExportCommand extends Command
 
     public function handle(DatabaseExportService $service): int
     {
-        $path = $this->option('path')
-            ?? storage_path('exports/db_backup_' . now()->format('Ymd_His') . '.sql');
+        $path = $this->option('path') ?? storage_path('exports/db_backup_' . now()->format('Ymd_His') . '.sql');
         if (!is_dir(dirname($path))) {
             mkdir(dirname($path), 0755, true);
         }

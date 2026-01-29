@@ -19,9 +19,9 @@ class EmployeeResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'salary' => (float) $this->salary,
-            'position' => $this->position->name,
-            'manager' => $this->manager ? $this->manager->name : 'Founder',
-            'created_at' => $this->created_at->toDateTimeString(),
+            'position' => $this->position?->name,
+            'manager' => $this->manager?->name,
+            'created_at' => $this->created_at?->toDateTimeString(),
         ];
     }
 }

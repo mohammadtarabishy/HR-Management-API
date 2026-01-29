@@ -27,7 +27,6 @@ class SalaryChangedBroadcast implements ShouldBroadcast
             $channels[] = new PrivateChannel('managers.' . $manager->id);
             $manager = $manager->manager;
         }
-        $channels[] = new PrivateChannel('managers.1');
         return $channels;
     }
 

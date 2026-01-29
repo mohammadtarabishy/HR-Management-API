@@ -20,6 +20,7 @@ class ApiResponse
             'meta' => (object)$meta,
         ], $status);
     }
+
     public static function error(
         string $message = 'Error',
         int    $status = 400,
@@ -32,6 +33,7 @@ class ApiResponse
             'errors' => $errors,
         ], $status);
     }
+
     public static function validation(array $errors): JsonResponse
     {
         return self::error(

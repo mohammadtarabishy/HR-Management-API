@@ -12,4 +12,13 @@ class StorePositionRequest extends FormRequest
             'name' => 'required|string|unique:positions,name',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Position name is required.',
+            'name.string' => 'Position name must be a valid string.',
+            'name.unique' => 'This position name already exists.',
+        ];
+    }
 }

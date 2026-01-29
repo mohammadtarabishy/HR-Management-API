@@ -8,14 +8,13 @@ use App\Http\Controllers\Api\V1\PositionController;
 
 Route::prefix('v1')->group(function () {
 
-    // Auth endpoints (strict limit)
     Route::middleware('throttle:auth')->group(function () {
         Route::post('/register', [AuthController::class, 'register']);
         Route::post('/login', [AuthController::class, 'login']);
     });
     Route::get('/reports/employees/no-salary-change', [EmployeeController::class, 'employeesWithoutSalaryChange']);
 
-    Route::middleware(['auth:sanctum'])->group(function () {
+    Route::middleware(['auth:sanctum','throttle:api'])->group(function () {
         Route::post('/logout', [AuthController::class, 'logout']);
         Route::get('employees/search', [EmployeeController::class, 'index']);
 

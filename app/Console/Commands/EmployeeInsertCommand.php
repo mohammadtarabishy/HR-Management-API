@@ -21,7 +21,7 @@ class EmployeeInsertCommand extends Command
         });
         $bar->finish();
         $this->newLine();
-        $this->info('Employees inserted successfully.');
+        $this->info('Employees have been inserted successfully.');
         return self::SUCCESS;
     }
 }

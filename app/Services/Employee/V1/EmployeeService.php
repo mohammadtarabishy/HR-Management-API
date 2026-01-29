@@ -5,6 +5,7 @@ namespace App\Services\Employee\V1;
 use App\Events\EmployeeChanged;
 use App\Events\EmployeeSalaryChanged;
 use App\Models\Employee;
+use App\Models\Position;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Validation\ValidationException;
@@ -148,28 +149,43 @@ class EmployeeService
 
     public function seed(int $count, callable $progressCallback = null): void
     {
-        $batchSize = 100;
+        $batchSize = 200;
         $batch = [];
+        $defaultPositionId = Position::first()?->id ?? 1;
+        $defaultManagerId = Employee::first()?->id;
+        if (!$defaultManagerId){
+            $manager = Employee::create([
+                'name' => 'Employee ' . Str::random(6),
+                'email' => Str::random(8) . '@example.com',
+                'position_id' => $defaultPositionId,
+                'manager_id' => null,
+                'salary' => rand(500, 5000),
+            ]);
+            $defaultManagerId = $manager->id;
+        }
         for ($i = 1; $i <= $count; $i++) {
             $batch[] = [
                 'name' => 'Employee ' . Str::random(6),
                 'email' => Str::random(8) . '@example.com',
-                'position_id' => 1,
-                'manager_id' => 1,
+                'position_id' => $defaultPositionId,
+                'manager_id' => $defaultManagerId,
                 'salary' => rand(500, 5000),
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
-            if ($progressCallback) {
-                $progressCallback();
-            }
             if (count($batch) >= $batchSize) {
                 Employee::insert($batch);
                 $batch = [];
+                if ($progressCallback) {
+                    $progressCallback(min($i, $count));
+                }
             }
         }
         if (!empty($batch)) {
             Employee::insert($batch);
+            if ($progressCallback) {
+                $progressCallback($count);
+            }
         }
     }
 
