@@ -13,7 +13,7 @@ class PositionControllerTest extends TestCase
     use WithFaker;
 
     #[Test]
-    public function test_index_returns_positions()
+    public function index_returns_positions()
     {
         $user = User::factory()->create();
         $this->actingAs($user, 'sanctum');

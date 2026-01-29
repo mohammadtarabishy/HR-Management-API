@@ -71,6 +71,7 @@ HR Management API is a backend API platform that enables organizations to manage
 
 **Backend**
 - Laravel 12
+- php 8.5
 - MySQL 8+
 - RESTful APIs
 - Eloquent ORM
@@ -97,7 +98,7 @@ All endpoints are versioned under /api/v1/.
 ## ⚙️ Artisan Commands
 
 - `php artisan employee:logs:cleanup --days=30`           Delete employee logs older than 1 month      
-- `php artisan logs:clear-files`                          Remove all log files                         
+- `php artisan logs:clear-files --force`                  Remove all log files : --force for forced action                     
 - `php artisan employee:seed {count}`                     Seed employees with progress bar             
 - `php artisan db:export {--path=}`                       Export database to SQL (optional path)       
 - `php artisan employees:json {--path=}`                  Export all employees to JSON (optional path) 
