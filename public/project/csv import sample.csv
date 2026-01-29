@@ -1,0 +1,5 @@
+name,email,salary,position,manager
+qassem,qassem@test.com,2000,Developer,
+besher,besher@test.com,5000,Team Lead,jaber
+jaber,jaber@test.com,4000,Front End Developer,mohammad khair
+munir,munir@test.com,2030,Team Lead,jaber
